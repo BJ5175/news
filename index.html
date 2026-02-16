@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N1 INFO // POČETNA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        body { background: #010409; color: white; font-family: 'Inter', sans-serif; }
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .live-alert {
+            position: fixed; bottom: 2rem; right: 2rem;
+            background: rgba(255, 0, 0, 0.9); padding: 1.5rem; border-radius: 1.5rem;
+            box-shadow: 0 0 30px rgba(255,0,0,0.5); z-index: 100;
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn { from { transform: translateX(120%); } to { transform: translateX(0); } }
+    </style>
+</head>
+<body class="p-8">
+    <nav class="flex justify-between items-center mb-12 border-b border-white/10 pb-6">
+        <div class="bg-red-600 px-4 py-1 font-black text-2xl italic">N1</div>
+        <div class="text-xs font-mono text-gray-500 uppercase tracking-widest">Portal Vijesti v2.0</div>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-6xl font-black tracking-tighter mb-4 uppercase italic">Glavne Vijesti</h1>
+        <div class="h-1 w-24 bg-red-600"></div>
+    </header>
+
+    <div class="news-grid">
+        <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-red-600 transition cursor-pointer">
+            <span class="text-red-500 font-bold text-xs uppercase tracking-widest">Politika</span>
+            <h2 class="text-2xl font-bold mt-2">Summit u Sarajevu: Budućnost regije u digitalnom dobu.</h2>
+        </div>
+        <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-red-600 transition cursor-pointer">
+            <span class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Tehnologija</span>
+            <h2 class="text-2xl font-bold mt-2">Novi kvantni procesori stižu na tržište Balkana.</h2>
+        </div>
+    </div>
+
+    <div id="liveNotification" class="live-alert hidden">
+        <div class="flex items-center gap-4">
+            <div class="w-3 h-3 bg-white rounded-full animate-ping"></div>
+            <div>
+                <p class="text-[10px] font-black uppercase tracking-widest">Izvanredne Vijesti</p>
+                <p class="text-sm font-bold">UŽIVO SMO: Specijalna emisija</p>
+            </div>
+            <a href="live.html" class="bg-white text-red-600 px-4 py-2 rounded-xl font-bold text-xs uppercase ml-4 hover:bg-gray-200 transition">Pridruži se</a>
+        </div>
+    </div>
+
+    <script>
+        // Simulacija detekcije Live signala
+        // Ovdje bi u realnosti provjeravao svoj VDO.Ninja link
+        setTimeout(() => {
+            document.getElementById('liveNotification').classList.remove('hidden');
+        }, 3000); // Pojavljuje se nakon 3 sekunde kao dokaz da sustav radi
+    </script>
+</body>
+</html>
